@@ -1,5 +1,37 @@
+@import "../../styles/a/_variables.scss";
 .homeFooter {
     background-color: #00010b;
     width: 100%;
     height: 100%;
+    & p {
+        color: #f1f1f1;
+        font-family: $font-text;
+        width: 50%;
+        font-size: 20px;
+        padding: 50px;
+        height: 50%;
+    }
+    & div {
+        color: #f1f1f1;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 20px;
+        justify-content: space-between;
+        width: 100%;
+        height: 50%;
+        & h4 {
+            width: 33%;
+            text-align: center;
+            text-decoration: none;
+            color: #2666cf;
+            font-family: $font-logo;
+            font-size: 20px;
+        }
+        & span {
+            text-align: center;
+            font-family: $font-text;
+            width: 33%;
+            font-size: 16px;
+        }
+    }
 }
