@@ -1,12 +1,13 @@
 import React from "react";
 import NavItem from "./NavItem/NavItem";
 import { Link } from "react-router-dom";
+import icon from "../../images/clapperboard.png";
 const Navbar = () => {
     return (
         <nav className="mainNav">
             <div>
                 <Link to="/">
-                    <h1>PICKAMOVIE</h1>
+                    <img src={icon} alt="" />
                 </Link>
             </div>
 

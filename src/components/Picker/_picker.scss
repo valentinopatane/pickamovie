@@ -17,8 +17,11 @@
         color: #7e7e7e;
         font-family: $font-text;
         font-size: 180px;
-    }
-    & .movieButton {
-        margin-top: 20px;
+        overflow: hidden;
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 }
