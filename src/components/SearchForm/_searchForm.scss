@@ -1,0 +1,48 @@
+@import "../../styles/a/_variables.scss";
+
+.searchForm {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    align-items: center;
+    justify-content: center;
+    & .searchFormInputs {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        & label {
+            font-family: $font-text;
+            font-size: 30px;
+            color: #fff;
+            padding: 10px 0;
+        }
+        & input {
+            padding: 20px;
+            font-size: 18px;
+            background-color: #f1f1f1;
+            font-family: $font-title;
+            height: 40px;
+            border-radius: 50px;
+        }
+    }
+    & .searchFormCheckboxes {
+        margin-top: 20px;
+        color: #fff;
+        display: flex;
+        width: 60%;
+        align-items: center;
+        justify-content: space-evenly;
+        & input {
+            background-color: $color-gray;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+            appearance: none;
+            &:checked {
+                border: 4px solid $color-gray;
+                background-color: $color-blue;
+            }
+        }
+    }
+}

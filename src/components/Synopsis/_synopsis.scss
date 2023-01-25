@@ -1,0 +1,33 @@
+@import "../../styles/a/_variables.scss";
+
+.synopsisMain {
+    width: 33%;
+    color: #f7f7f7;
+    height: max-content;
+    user-select: text;
+    & h2 {
+        color: $color-blue;
+        font-size: 55px;
+        letter-spacing: 2px;
+        font-family: $font-text;
+        width: 80%;
+    }
+    & div {
+        margin: 15px 0;
+        display: flex;
+        width: 80%;
+        align-items: center;
+        justify-content: space-between;
+        & h5 {
+            letter-spacing: 1px;
+            font-size: 15px;
+            font-family: $font-title;
+            color: #c0c0c0c0;
+        }
+    }
+    & p {
+        font-family: $font-title;
+        text-align: justify;
+        width: 80%;
+    }
+}

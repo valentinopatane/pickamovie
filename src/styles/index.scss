@@ -1,2 +1,11 @@
 @use "./base/reset.scss";
+
+//---Views
+@use "../views/Home/home";
+
+//--Components
 @use "../components/Navbar/navbar";
+@use "../components/SearchForm/searchForm";
+@use "../components/Picker/picker";
+@use "../components/Synopsis/synopsis";
+@use "../components/HomeFooter/homeFooter";

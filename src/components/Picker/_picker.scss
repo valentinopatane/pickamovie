@@ -1,0 +1,24 @@
+@import "../../styles/a/_variables.scss";
+
+.pickerContainer {
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    & .movieFinder {
+        width: 50%;
+        height: 450px;
+        border: 3px solid #7e7e7e;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #7e7e7e;
+        font-family: $font-text;
+        font-size: 180px;
+    }
+    & .movieButton {
+        margin-top: 20px;
+    }
+}

@@ -45,12 +45,10 @@
         padding: 20px;
         width: 20%;
         height: 40px;
+        color: #f1f1f1;
         &::placeholder {
             padding: 10px;
             color: #808080;
-        }
-        &::target-text {
-            padding: 10px;
         }
     }
 }
