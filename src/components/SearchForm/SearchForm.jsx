@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { fetchGenres } from "../../api/movies/movies";
-import dice from "../../images/dice-2-svgrepo-com.svg";
-import dice2 from "../../images/dice-3-svgrepo-com.svg";
 
 const SearchForm = ({ fetchData }) => {
     const [formData, setFormData] = useState({
@@ -10,7 +8,6 @@ const SearchForm = ({ fetchData }) => {
         year: "",
         filter: "",
     });
-    const [isHover, setIsHover] = useState(false);
     const [genres, setGenres] = useState([]);
 
     useEffect(() => {
@@ -32,7 +29,7 @@ const SearchForm = ({ fetchData }) => {
         fetchData(formData);
     };
     return (
-        <form className="searchForm" onSubmit={(e) => handleSubmit(e)}>
+        <form id="searchForm" onSubmit={(e) => handleSubmit(e)}>
             <div className="searchFormInputs">
                 <label htmlFor="type">Type</label>
                 <input name="type" type="text" placeholder="Movie" disabled />
@@ -62,18 +59,6 @@ const SearchForm = ({ fetchData }) => {
                 <input type="checkbox" name="filter" value="rating" disabled />
                 <label htmlFor="rating">Top Rating</label>
             </div>
-            <button
-                type="submit"
-                className="movieButton"
-                onMouseEnter={() => {
-                    setIsHover(true);
-                }}
-                onMouseLeave={() => {
-                    setIsHover(false);
-                }}
-            >
-                {!isHover ? <img src={dice} alt="" /> : <img src={dice2}></img>}
-            </button>
         </form>
     );
 };

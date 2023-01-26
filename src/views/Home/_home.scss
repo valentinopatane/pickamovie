@@ -1,9 +1,15 @@
+@import "../../styles/a/_variables.scss";
+@import "../../styles/a/_mixins.scss";
+
 .bodyHome {
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    @include media-down(lg) {
+        justify-content: start;
+    }
 }
 .mainHome {
     width: 100%;
@@ -12,7 +18,22 @@
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+    @include media-down(lg) {
+        height: max-content;
+        flex-wrap: wrap;
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+    @include media-down(xs) {
+        flex-direction: column;
+    }
 }
 .footerHome {
     height: 25%;
+    @include media-down(lg) {
+        height: max-content;
+    }
+    @include media-down(xs) {
+        flex-direction: column;
+    }
 }

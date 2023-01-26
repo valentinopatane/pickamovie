@@ -1,10 +1,17 @@
 @import "../../styles/a/_variables.scss";
+@import "../../styles/a/_mixins.scss";
 
 .synopsisMain {
     width: 33%;
     color: #f7f7f7;
     height: max-content;
     user-select: text;
+    @include media-down(lg) {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
     & h2 {
         color: $color-blue;
         font-size: 55px;
@@ -12,6 +19,9 @@
         font-family: $font-text;
         width: 80%;
         margin-bottom: -20px;
+        @include media-down(lg) {
+            text-align: center;
+        }
     }
     & div {
         margin: 15px 0;
@@ -20,13 +30,35 @@
         align-items: flex-start;
         justify-content: center;
         flex-direction: column;
+        @include media-down(lg) {
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        @include media-down(sm) {
+            flex-direction: column;
+            justify-content: center;
+            width: 80%;
+        }
         & div {
             display: flex;
             flex-direction: row;
             width: 60%;
             justify-content: space-between;
+            @include media-down(lg) {
+                justify-content: space-evenly;
+            }
+            @include media-down(sm) {
+                justify-content: space-between;
+                width: 100%;
+            }
+
             & h5 {
                 margin: 10px 0;
+                @include media-down(sm) {
+                    width: 50%;
+                    text-align: center;
+                }
             }
         }
         & h5 {
@@ -34,11 +66,21 @@
             font-size: 15px;
             font-family: $font-title;
             color: #c0c0c0c0;
+            @include media-down(lg) {
+                width: 40%;
+            }
+            @include media-down(sm) {
+                width: 100%;
+                text-align: center;
+            }
         }
     }
     & p {
         font-family: $font-title;
         text-align: justify;
         width: 80%;
+        @include media-down(sm) {
+            width: 80%;
+        }
     }
 }

@@ -7,3 +7,10 @@ $font-text: "Iceland", cursive;
 $color-gray: #242635;
 $color-background: #090a11;
 $color-blue: #2666cf;
+
+$breakpoints: (
+    xs: 425px,
+    sm: 768px,
+    md: 1024px,
+    lg: 1440px,
+);

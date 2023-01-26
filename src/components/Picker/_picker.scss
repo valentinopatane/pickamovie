@@ -1,11 +1,18 @@
 @import "../../styles/a/_variables.scss";
-
+@import "../../styles/a/_mixins.scss";
 .pickerContainer {
     width: 33%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    @include media-down(lg) {
+        width: 50%;
+    }
+    @include media-down(sm) {
+        width: 100%;
+        flex-direction: column-reverse;
+    }
     & .movieFinder {
         width: 50%;
         height: 450px;
@@ -18,6 +25,15 @@
         font-family: $font-text;
         font-size: 180px;
         overflow: hidden;
+        @include media-down(lg) {
+            width: 60%;
+        }
+        @include media-down(sm) {
+            width: 60%;
+        }
+        @include media-down(sm) {
+            margin-bottom: 10px;
+        }
         & img {
             width: 100%;
             height: 100%;

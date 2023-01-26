@@ -1,4 +1,6 @@
 @import "../../styles/a/_variables.scss";
+@import "../../styles/a/_mixins.scss";
+
 .mainNav {
     width: 100%;
     height: 90px;
@@ -14,10 +16,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        @include media-down(sm) {
+            width: 100%;
+        }
         & img {
             width: 55%;
             height: 100%;
             object-fit: cover;
+            @include media-down(sm) {
+                width: 60%;
+            }
         }
     }
     & ul {
@@ -26,6 +34,9 @@
         align-items: center;
         justify-content: space-evenly;
         list-style: none;
+        @include media-down(sm) {
+            display: none;
+        }
         & li {
             height: max-content;
             width: max-content;
@@ -47,6 +58,9 @@
         width: 20%;
         height: 40px;
         color: #f1f1f1;
+        @include media-down(sm) {
+            display: none;
+        }
         &::placeholder {
             padding: 10px;
             color: #808080;

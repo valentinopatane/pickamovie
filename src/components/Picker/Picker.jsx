@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import errorImage from "../../images/imageError.png";
+import dice from "../../images/dice-2-svgrepo-com.svg";
+import dice2 from "../../images/dice-3-svgrepo-com.svg";
 const Picker = ({ movie, isLoading }) => {
+    const [isHover, setIsHover] = useState(false);
+
     return (
         <div className="pickerContainer">
             <div className="movieFinder">
@@ -22,6 +26,19 @@ const Picker = ({ movie, isLoading }) => {
 
                 {isLoading === null ? "?" : isLoading === true ? "LOADING" : ""}
             </div>
+            <button
+                form="searchForm"
+                type="submit"
+                className="movieButton"
+                onMouseEnter={() => {
+                    setIsHover(true);
+                }}
+                onMouseLeave={() => {
+                    setIsHover(false);
+                }}
+            >
+                {!isHover ? <img src={dice} alt="" /> : <img src={dice2}></img>}
+            </button>
         </div>
     );
 };

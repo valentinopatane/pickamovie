@@ -1,8 +1,12 @@
 @import "../../styles/a/_variables.scss";
+@import "../../styles/a/_mixins.scss";
 .homeFooter {
     background-color: #00010b;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     & p {
         color: #f1f1f1;
         font-family: $font-text;
@@ -10,15 +14,23 @@
         font-size: 20px;
         padding: 50px;
         height: 50%;
+
+        @include media-down(sm) {
+            width: 100%;
+            padding: 20px 40px;
+            line-height: 25px;
+        }
     }
     & div {
         color: #f1f1f1;
         display: flex;
-        align-items: flex-end;
-        padding-bottom: 20px;
-        justify-content: space-between;
         width: 100%;
-        height: 50%;
+        @include media-down(sm) {
+            flex-direction: column-reverse;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
         & h4 {
             width: 33%;
             text-align: center;
@@ -26,12 +38,24 @@
             color: #2666cf;
             font-family: $font-logo;
             font-size: 20px;
+            @include media-down(sm) {
+                text-align: center;
+                width: 100%;
+            }
         }
         & span {
             text-align: center;
             font-family: $font-text;
             width: 33%;
             font-size: 16px;
+            &:nth-child(3) {
+                @include media-down(sm) {
+                    display: none;
+                }
+            }
+            @include media-down(xs) {
+                width: 100%;
+            }
         }
     }
 }
