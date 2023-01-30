@@ -8,7 +8,9 @@ const apiKey = "e0ca2bfa2bbf30f8eecdb462f6b8d6d6";
 
 export const fetchMovie = (pageNumber, formData) =>
     API.get(
-        `discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pageNumber}&year=${formData.year}&with_genres=${formData.genre}`
+        `discover/movie?api_key=${apiKey}&language=en-US&include_adult=false&include_video=false&page=${
+            pageNumber || ""
+        }&year=${formData?.year}&with_genres=${formData?.genre}`
     );
 
 export const fetchGenres = () =>

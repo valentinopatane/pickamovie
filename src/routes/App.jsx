@@ -9,9 +9,9 @@ const App = () => {
         <>
             <Navbar></Navbar>
             <Routes>
-                <Route exact path="/" element={<Home />}></Route>
-                <Route exact path="/movies" element={<Movies />}></Route>
-                <Route exact path="/series" element={<Series />}></Route>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/movies" element={<Movies />}></Route>
+                <Route path="/series" element={<Series />}></Route>
             </Routes>
         </>
     );

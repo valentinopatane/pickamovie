@@ -1,0 +1,67 @@
+@import "../../styles/a/_variables.scss";
+@import "../../styles/a/_mixins.scss";
+
+.carouselContainer {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    margin-top: 90px;
+    & ::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0),
+            $color-background
+        );
+        background-position: center;
+        background-size: cover;
+    }
+}
+.slide {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    animation: fadeIn 1s ease-in;
+    & ::before {
+        background-image: none;
+        background-color: transparent;
+    }
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+    .slideInfo {
+        bottom: 20%;
+        left: 10%;
+        width: 50%;
+        text-align: left;
+        color: #fff;
+        position: absolute;
+
+        & h4 {
+            font-size: 45px;
+            margin-bottom: 10px;
+            font-family: $font-title;
+        }
+        & p {
+            font-family: $font-title;
+            font-size: 20px;
+        }
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

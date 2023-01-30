@@ -1,10 +1,12 @@
 import React from "react";
 import NavItem from "./NavItem/NavItem";
-import { Link } from "react-router-dom";
+import { Link, useHref } from "react-router-dom";
 import icon from "../../images/clapperboard.png";
 const Navbar = () => {
+    const url = useHref();
+
     return (
-        <nav className="mainNav">
+        <nav className={url == "/" ? "mainNav" : "mainNav filter"}>
             <div>
                 <Link to="/">
                     <img src={icon} alt="" />

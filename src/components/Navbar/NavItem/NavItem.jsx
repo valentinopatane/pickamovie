@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 const NavItem = ({ path }) => {
     return (
         <li>
-            <Link to={`/${path}`}>{path.toUpperCase()} </Link>
+            <Link to={`/${path == "home" ? "" : path}`}>
+                {path.toUpperCase()}{" "}
+            </Link>
         </li>
     );
 };
