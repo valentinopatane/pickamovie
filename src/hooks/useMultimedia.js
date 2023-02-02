@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchMovie } from "../api/movies/movies";
 
 const useMultimedia = (pageNum = 1) => {
-    const [results, setResults] = useState([]);
+    const [resultsAdult, setResultsAdult] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [hasNextPage, setHasNextPage] = useState(false);
     const [carousel, setCarousel] = useState([]);
@@ -14,9 +14,12 @@ const useMultimedia = (pageNum = 1) => {
             .then(({ data }) => {
                 if (pageNum == 1) {
                     setCarousel(data.results.filter((e, i) => i < 5));
-                    setResults((prev) => [...prev, ...data.results.splice(5)]);
+                    setResultsAdult((prev) => [
+                        ...prev,
+                        ...data.results.splice(5),
+                    ]);
                 } else {
-                    setResults((prev) => [...prev, ...data.results]);
+                    setResultsAdult((prev) => [...prev, ...data.results]);
                 }
                 setHasNextPage(Boolean(data.results.length));
                 setIsLoading(false);
@@ -26,6 +29,7 @@ const useMultimedia = (pageNum = 1) => {
             });
     }, [pageNum]);
 
+    const results = resultsAdult.filter((p) => p.original_language != "ko");
     return {
         results,
         isLoading,

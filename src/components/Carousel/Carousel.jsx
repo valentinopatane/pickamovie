@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 const Carousel = ({ carousel }) => {
-    console.log(carousel);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const img = `https://image.tmdb.org/t/p/original${carousel[currentIndex]?.backdrop_path}`;

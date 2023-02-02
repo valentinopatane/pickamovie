@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import errorImage from "../../../images/imageError.png";
 
 const MovieItem = React.forwardRef(({ movie }, ref) => {
     const [isLoaded, setIsLoaded] = useState(false);
+    const navigate = useNavigate();
     const movieBody = (
         <>
             <div className={isLoaded ? "movieImage" : "movieImage loading"}>
@@ -29,11 +31,20 @@ const MovieItem = React.forwardRef(({ movie }, ref) => {
     );
 
     const content = ref ? (
-        <div className="movieItemContainer" ref={ref}>
+        <div
+            onClick={() => navigate(`/movies/${movie.id}`)}
+            className="movieItemContainer"
+            ref={ref}
+        >
             {movieBody}
         </div>
     ) : (
-        <div className="movieItemContainer">{movieBody}</div>
+        <div
+            onClick={() => navigate(`/movies/${movie.id}`)}
+            className="movieItemContainer"
+        >
+            {movieBody}
+        </div>
     );
 
     return content;

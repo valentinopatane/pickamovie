@@ -4,9 +4,14 @@ import { Link, useHref } from "react-router-dom";
 import icon from "../../images/clapperboard.png";
 const Navbar = () => {
     const url = useHref();
-
     return (
-        <nav className={url == "/" ? "mainNav" : "mainNav filter"}>
+        <nav
+            className={
+                url == "/" || Number(url.slice(8)) != 0
+                    ? "mainNav"
+                    : "mainNav filter"
+            }
+        >
             <div>
                 <Link to="/">
                     <img src={icon} alt="" />
