@@ -7,10 +7,17 @@ const Synopsis = ({ movie, isLoading }) => {
                 ""
             ) : (
                 <>
-                    <h2>{movie?.title}</h2>
+                    <h2>
+                        {movie?.title != undefined ? movie?.title : movie?.name}
+                    </h2>
                     <div>
                         <div>
-                            <h5>Year: {movie?.release_date.slice(0, -6)}</h5>
+                            <h5>
+                                Year:{" "}
+                                {movie?.release_date != undefined
+                                    ? movie?.release_date.slice(0, -6)
+                                    : movie?.first_air_date.slice(0, -6)}
+                            </h5>
                             <h5>
                                 Rating:{" "}
                                 {movie?.vote_average.toFixed(1) == 0

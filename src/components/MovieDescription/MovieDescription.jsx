@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getMovie } from "../../api/movies/movies";
+import { useHref, useParams } from "react-router-dom";
+import { getMovie, getSerie } from "../../api/movies/movies";
 import errorImage from "../../images/imageError.png";
 import HomeFooter from "../HomeFooter/HomeFooter";
 const MovieDescription = () => {
-    const href = useParams().id;
+    const params = useParams().id;
+    const href = useHref();
     const [movie, setMovie] = useState({});
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        getMovie(href).then(({ data }) => setMovie(data));
+        window.scrollTo(0, 0);
+        href.slice(1, 3) == "tv"
+            ? getSerie(params).then(({ data }) => setMovie(data))
+            : getMovie(params).then(({ data }) => setMovie(data));
     }, []);
 
     return (
@@ -34,8 +38,8 @@ const MovieDescription = () => {
                     ></img>
                 </div>
                 <div className="movieDataContainer">
-                    <h1>{movie?.title}</h1>
-                    <p>{movie?.overview}</p>
+                    <h1>{movie?.title ? movie?.title : movie?.name}</h1>
+                    <p>{movie?.overview || "No description available"}</p>
                     <ul>
                         Genres:
                         {movie?.genres?.map((g) => (
@@ -48,7 +52,10 @@ const MovieDescription = () => {
                             {movie?.vote_average?.toFixed(1) || "Unavailable"}
                         </span>
                         <span>
-                            Year: {movie?.release_date || "Unavailable"}
+                            Year:{" "}
+                            {movie?.release_date
+                                ? movie?.release_date
+                                : movie?.first_air_date || "Unavailable"}
                         </span>
                     </div>
                 </div>

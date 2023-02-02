@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchGenres } from "../../api/movies/movies";
+import { fetchMoviesGenres, fetchSeriesGenres } from "../../api/movies/movies";
 
 const SearchForm = ({ fetchData }) => {
     const [formData, setFormData] = useState({
@@ -9,14 +9,16 @@ const SearchForm = ({ fetchData }) => {
         filter: "",
     });
     const [genres, setGenres] = useState([]);
-
     useEffect(() => {
         async function getGenres() {
-            const { data } = await fetchGenres();
+            const { data } =
+                formData.type == "movies"
+                    ? await fetchMoviesGenres()
+                    : await fetchSeriesGenres();
             setGenres(data.genres);
         }
         getGenres();
-    }, []);
+    }, [formData.type]);
 
     const handleChange = (e) => {
         const name = e.target.name;
@@ -32,7 +34,10 @@ const SearchForm = ({ fetchData }) => {
         <form id="searchForm" onSubmit={(e) => handleSubmit(e)}>
             <div className="searchFormInputs">
                 <label htmlFor="type">Type</label>
-                <input name="type" type="text" placeholder="Movie" disabled />
+                <select name="type" onChange={handleChange}>
+                    <option value="movies">Movies</option>
+                    <option value="series">Series</option>
+                </select>
                 <label htmlFor="genre">Genre</label>
                 <select onChange={handleChange} name="genre">
                     <option value=""></option>
@@ -46,18 +51,10 @@ const SearchForm = ({ fetchData }) => {
                 <input name="year" type="number" onChange={handleChange} />
             </div>
             <div className="searchFormCheckboxes">
-                <input
-                    type="checkbox"
-                    name="filter"
-                    value="default"
-                    defaultChecked
-                    disabled
-                />
-                <label htmlFor="default">Default</label>
-                <input type="checkbox" name="filter" value="popular" disabled />
-                <label htmlFor="popular">Popular</label>
-                <input type="checkbox" name="filter" value="rating" disabled />
-                <label htmlFor="rating">Top Rating</label>
+                <span>
+                    Series mode is in Beta state, sometimes you'll experience
+                    failures from the database.
+                </span>
             </div>
         </form>
     );

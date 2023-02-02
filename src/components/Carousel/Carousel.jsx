@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Carousel = ({ carousel }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const navigate = useNavigate();
 
     const img = `https://image.tmdb.org/t/p/original${carousel[currentIndex]?.backdrop_path}`;
 
@@ -21,8 +23,14 @@ const Carousel = ({ carousel }) => {
                     <div className="slide" key={r.id}>
                         <img src={img} alt="portrait" />
                         <div className="slideInfo">
-                            <h4>{r.title}</h4>
+                            <h4>{r.title ? r.title : r.name}</h4>
                             <p>{r.overview}</p>
+                            <button
+                                className="buttonSeeMore"
+                                onClick={() => navigate(`/movies/${r.id}`)}
+                            >
+                                See more
+                            </button>
                         </div>
                     </div>
                 ) : (

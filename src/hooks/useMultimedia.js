@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { fetchMovie } from "../api/movies/movies";
+import { fetchMovies, fetchSeries } from "../api/movies/movies";
 
-const useMultimedia = (pageNum = 1) => {
+const useMultimedia = (pageNum = 1, mode, href) => {
     const [resultsAdult, setResultsAdult] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [hasNextPage, setHasNextPage] = useState(false);
@@ -9,25 +9,40 @@ const useMultimedia = (pageNum = 1) => {
 
     useEffect(() => {
         setIsLoading(true);
-
-        fetchMovie(pageNum)
-            .then(({ data }) => {
-                if (pageNum == 1) {
-                    setCarousel(data.results.filter((e, i) => i < 5));
-                    setResultsAdult((prev) => [
-                        ...prev,
-                        ...data.results.splice(5),
-                    ]);
-                } else {
-                    setResultsAdult((prev) => [...prev, ...data.results]);
-                }
-                setHasNextPage(Boolean(data.results.length));
-                setIsLoading(false);
-            })
-            .catch((e) => {
-                setIsLoading(false);
-            });
-    }, [pageNum]);
+        if (mode == "movies") {
+            fetchMovies(pageNum)
+                .then(({ data }) => {
+                    if (pageNum == 1) {
+                        setResultsAdult([]);
+                        setCarousel(data.results.filter((e, i) => i < 5));
+                        setResultsAdult(() => [...data.results.splice(5)]);
+                    } else {
+                        setResultsAdult((prev) => [...prev, ...data.results]);
+                    }
+                    setHasNextPage(Boolean(data.results.length));
+                    setIsLoading(false);
+                })
+                .catch((e) => {
+                    setIsLoading(false);
+                });
+        } else if (mode == "series") {
+            fetchSeries(pageNum)
+                .then(({ data }) => {
+                    if (pageNum == 1) {
+                        setResultsAdult([]);
+                        setCarousel(data.results.filter((e, i) => i < 5));
+                        setResultsAdult(() => [...data.results.splice(5)]);
+                    } else {
+                        setResultsAdult((prev) => [...prev, ...data.results]);
+                    }
+                    setHasNextPage(Boolean(data.results.length));
+                    setIsLoading(false);
+                })
+                .catch((e) => {
+                    setIsLoading(false);
+                });
+        }
+    }, [pageNum, href]);
 
     const results = resultsAdult.filter((p) => p.original_language != "ko");
     return {

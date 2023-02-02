@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
+import { useHref } from "react-router-dom";
 import Carousel from "../components/Carousel/Carousel";
 import MovieItem from "../components/MoviesList/MovieItem/MovieItem";
 import MoviesList from "../components/MoviesList/MoviesList";
@@ -6,9 +7,18 @@ import useMultimedia from "../hooks/useMultimedia";
 
 const Movies = () => {
     const [pageNum, setPageNum] = useState(1);
+    const href = useHref();
+    const mode = href.slice(1);
 
-    const { isLoading, results, hasNextPage, carousel } =
-        useMultimedia(pageNum);
+    const { isLoading, results, hasNextPage, carousel } = useMultimedia(
+        pageNum,
+        mode,
+        href
+    );
+
+    useEffect(() => {
+        window.scrollTo(0, 0), setPageNum(1);
+    }, [href]);
 
     const intObserver = useRef();
     const lastPostRef = useCallback(
@@ -37,7 +47,7 @@ const Movies = () => {
                     fontFamily: "'Holtwood One SC', serif",
                 }}
             >
-                Movies
+                {mode == "movies" ? "Movies" : "Series"}
             </h1>
             <MoviesList>
                 {results.map((movie, i) => {

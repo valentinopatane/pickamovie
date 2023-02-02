@@ -12,7 +12,6 @@ const HomeFooter = () => {
                 in a few seconds. We have almost any movie or tv-shows that you
                 will want to watch!
             </p>
-
             <div className="homeFooterCopy">
                 <span>PickaMovie. All Rights Reserved. 2023</span>
                 <h4>PickaMovie</h4>

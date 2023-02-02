@@ -59,21 +59,14 @@
         width: 60%;
         align-items: center;
         justify-content: space-evenly;
+        & span {
+            font-family: $font-text;
+            font-size: 20px;
+            color: #e1e1e1;
+        }
         @include media-down(lg) {
             width: 100%;
             margin: 30px 0;
-        }
-        & input {
-            background-color: $color-gray;
-            border-radius: 50%;
-            height: 20px;
-            width: 20px;
-            cursor: pointer;
-            appearance: none;
-            &:checked {
-                border: 4px solid $color-gray;
-                background-color: $color-blue;
-            }
         }
     }
 }
