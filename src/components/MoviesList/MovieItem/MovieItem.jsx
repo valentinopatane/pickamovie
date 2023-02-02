@@ -26,9 +26,9 @@ const MovieItem = React.forwardRef(({ movie }, ref) => {
             <div className="movieInfo">
                 <h6>{movie.title ? movie.title : movie.name}</h6>
                 <span>
-                    {movie?.release_date
+                    {/* {movie?.release_date
                         ? movie?.release_date.slice(0, -6)
-                        : movie?.first_air_date.slice(0, -6)}
+                        : movie?.first_air_date.slice(0, -6)} */}
                 </span>
             </div>
         </>

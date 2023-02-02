@@ -60,6 +60,7 @@
         width: 20%;
         height: 40px;
         color: #f1f1f1;
+        position: relative;
         @include media-down(sm) {
             display: none;
         }
@@ -67,6 +68,56 @@
             padding: 10px;
             color: #808080;
         }
+    }
+    .searchList {
+        position: absolute;
+        top: 70px;
+        background-color: $color-gray;
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        right: 20%;
+        height: max-content;
+        border-radius: 15px;
+    }
+    .searchList :nth-child(2) {
+        background-color: #171822;
+    }
+    .searchList :nth-child(4) {
+        background-color: #171822;
+    }
+    .searchListItem {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px 0 10px;
+        height: 90px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        & img {
+            width: 20%;
+            border-radius: 15px;
+            height: 90%;
+        }
+        .searchListItemTitle {
+            background-color: transparent;
+            width: 70%;
+            color: $color-blue;
+            font-family: $font-text;
+            font-size: 22px;
+            background-color: transparent;
+        }
+    }
+    .searchListButton {
+        width: 100%;
+        background-color: #171822;
+        color: #f7f7f7;
+        border: none;
+        padding: 10px 0;
+        margin-top: 5px;
+        border-radius: 0 0 15px 15px;
+        cursor: pointer;
     }
 }
 .filter {

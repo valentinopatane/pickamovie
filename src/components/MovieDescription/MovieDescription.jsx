@@ -14,7 +14,7 @@ const MovieDescription = () => {
         href.slice(1, 3) == "tv"
             ? getSerie(params).then(({ data }) => setMovie(data))
             : getMovie(params).then(({ data }) => setMovie(data));
-    }, []);
+    }, [href]);
 
     return (
         <>
