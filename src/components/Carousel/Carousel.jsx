@@ -27,7 +27,11 @@ const Carousel = ({ carousel }) => {
                             <p>{r.overview}</p>
                             <button
                                 className="buttonSeeMore"
-                                onClick={() => navigate(`/movies/${r.id}`)}
+                                onClick={() =>
+                                    navigate(
+                                        `${r.title ? "/movies" : "/tv"}/${r.id}`
+                                    )
+                                }
                             >
                                 See more
                             </button>
