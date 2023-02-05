@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import errorImage from "../../images/imageError.png";
 import dice from "../../images/dice-2-svgrepo-com.svg";
 import dice2 from "../../images/dice-3-svgrepo-com.svg";
+import Spinner from "../Spinner/Spinner";
 const Picker = ({ movie, isLoading }) => {
     const [isHover, setIsHover] = useState(false);
 
@@ -24,7 +25,13 @@ const Picker = ({ movie, isLoading }) => {
                     }}
                 ></img>
 
-                {isLoading === null ? "?" : isLoading === true ? "LOADING" : ""}
+                {isLoading === null ? (
+                    "?"
+                ) : isLoading === true ? (
+                    <Spinner />
+                ) : (
+                    ""
+                )}
             </div>
             <button
                 form="searchForm"
