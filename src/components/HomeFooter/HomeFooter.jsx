@@ -9,7 +9,7 @@ const HomeFooter = () => {
                 jump straight up to the enterteinment. No registration is
                 required. The movies/series list is updated daily. Just open
                 pickamovie.com and be ready to watch movies, tv-shows and series
-                in a few seconds. We have almost any movie or tv-shows that you
+                in a few seconds. We almost have any movie or tv-shows that you
                 will want to watch!
             </p>
             <div className="homeFooterCopy">
