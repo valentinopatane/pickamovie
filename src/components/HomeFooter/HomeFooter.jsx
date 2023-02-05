@@ -2,7 +2,7 @@ import React from "react";
 
 const HomeFooter = () => {
     return (
-        <div className="homeFooter">
+        <footer className="homeFooter">
             <p>
                 PICKAMOVIE.com -It’s a very simple tool that can help you
                 choose. It allows you to quickly decide what to watch so you can
@@ -20,7 +20,7 @@ const HomeFooter = () => {
                     family
                 </span>
             </div>
-        </div>
+        </footer>
     );
 };
 

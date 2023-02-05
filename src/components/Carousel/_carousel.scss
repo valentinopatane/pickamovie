@@ -39,6 +39,12 @@
     text-align: left;
     color: #fff;
     position: absolute;
+    @include media-down(sm) {
+        width: 100%;
+        text-align: center;
+        left: 0;
+        padding: 10px;
+    }
     & h4 {
         font-size: 45px;
         margin-bottom: 10px;
@@ -47,6 +53,8 @@
     & p {
         font-family: $font-title;
         font-size: 20px;
+        @include media-down(sm) {
+        }
     }
 }
 .buttonSeeMore {

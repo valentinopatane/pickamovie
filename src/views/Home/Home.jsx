@@ -52,16 +52,16 @@ const Home = () => {
     }
 
     return (
-        <main className="bodyHome">
-            <section className="mainHome">
-                <SearchForm fetchData={fetchData} />
-                <Picker movie={movie} isLoading={isLoading} />
-                <Synopsis movie={movie} isLoading={isLoading} />
-            </section>
-            <footer className="footerHome">
-                <HomeFooter />
-            </footer>
-        </main>
+        <>
+            <main className="bodyHome">
+                <section className="mainHome">
+                    <SearchForm fetchData={fetchData} />
+                    <Picker movie={movie} isLoading={isLoading} />
+                    <Synopsis movie={movie} isLoading={isLoading} />
+                </section>
+            </main>
+            <HomeFooter />
+        </>
     );
 };
 
