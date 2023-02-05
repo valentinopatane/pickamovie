@@ -1,7 +1,7 @@
 {
   "name": "pickamovie",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tool that helps people to choose what to watch in their free time. (Movies and Tv Series)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
