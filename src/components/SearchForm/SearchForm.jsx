@@ -6,7 +6,6 @@ const SearchForm = ({ fetchData }) => {
         type: "movies",
         genre: "",
         year: "",
-        filter: "",
     });
     const [genres, setGenres] = useState([]);
     useEffect(() => {

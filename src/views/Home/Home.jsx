@@ -15,11 +15,14 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(null);
 
     async function fetchData(formData) {
-        console.log(formData);
         setIsLoading(true);
+
         let response;
         if (formData.type == "movies") {
-            const randomPageNumber = Math.floor(Math.random() * 200);
+            const totalpages = await fetchMovies("", formData).then(
+                (data) => data.data.total_pages
+            );
+            const randomPageNumber = Math.floor(Math.random() * totalpages);
             try {
                 response = await fetchMovies(randomPageNumber, formData);
             } catch (error) {
@@ -27,17 +30,20 @@ const Home = () => {
                 throw new Error("Couldn't get movie");
             }
         } else if (formData.type == "series") {
-            const randomPageNumber = Math.floor(Math.random() * 3);
+            const totalpages = await fetchSeries("", formData).then(
+                (data) => data.data.total_pages
+            );
+            const randomPageNumber = Math.floor(Math.random() * totalpages);
             try {
                 response = await fetchSeries(randomPageNumber, formData);
             } catch (error) {
                 setIsLoading(null);
                 throw new Error("Couldn't get series");
             }
-            console.log(response);
         }
         const randomMovieNumber = Math.floor(Math.random() * 20);
         const movieFound = response.data.results[randomMovieNumber];
+
         if (movieFound == undefined) {
             setIsLoading(null);
         } else if (formData.type == "movies") {
