@@ -22,7 +22,9 @@ const Home = () => {
             const totalpages = await fetchMovies("", formData).then(
                 (data) => data.data.total_pages
             );
-            const randomPageNumber = Math.floor(Math.random() * totalpages);
+            const randomPageNumber = Math.floor(
+                Math.random() * (!formData.genre ? 200 : totalpages)
+            );
             try {
                 response = await fetchMovies(randomPageNumber, formData);
             } catch (error) {
