@@ -26,7 +26,6 @@ const Home = () => {
             try {
                 response = await fetchMovies(randomPageNumber, formData);
             } catch (error) {
-                console.log(error);
                 setIsLoading(null);
                 throw new Error("Couldn't get movie");
             }
@@ -40,7 +39,6 @@ const Home = () => {
             try {
                 response = await fetchSeries(randomPageNumber, formData);
             } catch (error) {
-                console.log(error);
                 setIsLoading(null);
                 throw new Error("Couldn't get series");
             }
@@ -56,7 +54,6 @@ const Home = () => {
         } else if (formData.type == "series") {
             const { data } = await getSerie(movieFound.id);
             setMovie(data);
-            console.log(data);
         }
         setTimeout(() => setIsLoading(false), 1000);
     }
