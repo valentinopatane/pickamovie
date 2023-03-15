@@ -19,16 +19,14 @@ const Home = () => {
 
         let response;
         if (formData.type == "movies") {
-            const totalpages = await fetchMovies("", formData).then(
-                (data) => data.data.total_pages
-            );
             const randomPageNumber = Math.floor(
-                Math.random() *
-                    (!formData.genre && !formData.year ? 200 : totalpages)
+                Math.random() * (!formData.genre && !formData.year ? 200 : 500)
             );
+
             try {
                 response = await fetchMovies(randomPageNumber, formData);
             } catch (error) {
+                console.log(error);
                 setIsLoading(null);
                 throw new Error("Couldn't get movie");
             }
@@ -36,10 +34,13 @@ const Home = () => {
             const totalpages = await fetchSeries("", formData).then(
                 (data) => data.data.total_pages
             );
-            const randomPageNumber = Math.floor(Math.random() * totalpages);
+            const randomPageNumber = Math.floor(
+                Math.random() * (totalpages <= 500 ? totalpages : 500)
+            );
             try {
                 response = await fetchSeries(randomPageNumber, formData);
             } catch (error) {
+                console.log(error);
                 setIsLoading(null);
                 throw new Error("Couldn't get series");
             }

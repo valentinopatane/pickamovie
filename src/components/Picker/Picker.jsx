@@ -44,7 +44,11 @@ const Picker = ({ movie, isLoading }) => {
                     setIsHover(false);
                 }}
             >
-                {!isHover ? <img src={dice} alt="" /> : <img src={dice2}></img>}
+                {!isHover ? (
+                    <img src={dice} alt="button" />
+                ) : (
+                    <img src={dice2} alt="button" />
+                )}
             </button>
         </div>
     );

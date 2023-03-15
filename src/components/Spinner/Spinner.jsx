@@ -5,7 +5,7 @@ const Spinner = () => {
 
     setInterval(() => {
         setIsVisible(!isVisible);
-    }, 500);
+    }, 1500);
 
     return <div>{isVisible && <div className="spinner"></div>}</div>;
 };
